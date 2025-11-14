@@ -5,6 +5,7 @@ import { formatDuration } from '../utils/helpers'
 import { DownloadTypeToggle } from './DownloadTypeToggle'
 import { FormatSelector } from './FormatSelector'
 import { JSX } from 'react'
+import placeholderThumbnail from '../assets/placeholder.jpg'
 
 interface VideoInfoCardProps {
   videoInfo: VideoInfo
@@ -30,7 +31,7 @@ export const VideoInfoCard = ({
       <div className="flex gap-4 mb-6">
         {videoInfo.thumbnail && (
           <img
-            src={videoInfo.thumbnail}
+            src={videoInfo.thumbnail || placeholderThumbnail}
             alt="Thumbnail"
             className="w-40 h-24 object-cover rounded-lg"
           />
@@ -54,6 +55,7 @@ export const VideoInfoCard = ({
       />
 
       <button
+        type="button"
         onClick={onStartDownload}
         disabled={!selectedFormat}
         className="mt-6 w-full py-3 bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"

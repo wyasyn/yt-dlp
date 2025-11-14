@@ -67,6 +67,7 @@ export const DownloadItem = ({
 
           {download.status === 'completed' && download.filePath && (
             <button
+              type="button"
               onClick={() => onOpenLocation(download.filePath!)}
               className="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors"
             >
@@ -83,6 +84,7 @@ export const DownloadItem = ({
         <div className="flex items-center gap-2">
           {(download.status === 'downloading' || download.status === 'queued') && (
             <button
+              type="button"
               onClick={() => onCancel(download.id)}
               className="p-2 bg-slate-700 hover:bg-slate-600 rounded-lg transition-all"
               title="Cancel"
@@ -92,6 +94,7 @@ export const DownloadItem = ({
           )}
           {download.status === 'failed' && (
             <button
+              type="button"
               onClick={() => onRetry(download)}
               className="p-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all"
               title="Retry"
@@ -100,6 +103,7 @@ export const DownloadItem = ({
             </button>
           )}
           <button
+            type="button"
             onClick={() => onDelete(download.id)}
             className="p-2 bg-red-600/20 hover:bg-red-600 rounded-lg transition-all"
             title="Delete"
